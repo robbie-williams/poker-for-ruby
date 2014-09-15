@@ -75,6 +75,7 @@ def print_args_reminder
 end
 
 #Get program arguments
+invalid_args = false
 if ARGV[0] == "-h"
     print_args_reminder
     exit
@@ -83,7 +84,7 @@ end
 people = ARGV[0]
 if people.nil?
     puts "No players argument given"
-    print_args_reminder
+    invalid_args = true
 else
     people = people.to_i
 end
@@ -95,7 +96,7 @@ else
     draws = draws.to_i
     if draws > 3 or draws < 0
         puts "Invalid number of draws"
-        invalid_args = true;
+        invalid_args = true
     end
 end
 
@@ -114,6 +115,9 @@ end
 
 game = Poker_Test::Game.new people, 2
 game.get_player_hands
+
+
+
 player = game.get_winner
 winning_hand = RRP::PokerHand.new(player.cards)
 puts "Winning player id: " + player.id.to_s + "(" + winning_hand.rank + ")"

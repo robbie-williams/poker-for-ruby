@@ -1,12 +1,9 @@
-# $:.unshift File.expand_path '../../lib/deck-of-cards', __FILE__
-
 load 'card.rb'
 module RRP
 class DeckOfCards
   attr_reader :cards
   
   SUITS = ['h', 's', 'd', 'c']
-  # RANKS = [*2..10, 'J', 'Q', 'K', 'A']
   RANKS = ['2','3','4','5','6','7','8','9','T', 'J', 'Q', 'K', 'A']
   
   def initialize
